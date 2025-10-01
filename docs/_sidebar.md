@@ -3,4 +3,4 @@
 * [Setup](/setup.md)
 * [FAQ](/faq.md)
 * [test-cms-admin](/test-from-cms-admin.md)
-* Test file
+* [T](/test-from-cms-admin.md)est file
