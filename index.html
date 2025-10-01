@@ -15,8 +15,16 @@
     window.$docsify = {
       name: 'My Documentation',
       repo: '',            // Add your repo URL or leave empty
-      loadSidebar: true,   // Enable loading _sidebar.md for navigation
-      basePath: 'docs/'    // Base path where your markdown files are located
+      loadSidebar: false,  // Disable manual sidebar
+      loadNavbar: false,   // Disable navbar
+      auto2top: true,      // Auto scroll to top when route changes
+      subMaxLevel: 3,      // Maximum sub heading level
+      search: 'auto',      // Enable search
+      basePath: 'docs/',   // Base path where your markdown files are located
+      autoHeader: true,    // Auto generate headers
+      maxLevel: 3,         // Maximum heading level for TOC
+      mergeNavbar: true,   // Merge navbar with sidebar on smaller screens
+      executeScript: true  // Execute script tags
     };
   </script>
   <!-- Docsify v4 -->
