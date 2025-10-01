@@ -1,5 +1,6 @@
-- [Features](/features.md)
-- [Intro](/intro.md)
-- [Setup](/setup.md)
-- [FAQ](/faq.md)
-- [test-cms-admin](/test-from-cms-admin.md)
+* [Features](/features.md)
+* [Intro](/intro.md)
+* [Setup](/setup.md)
+* [FAQ](/faq.md)
+* [test-cms-admin](/test-from-cms-admin.md)
+* Test file
