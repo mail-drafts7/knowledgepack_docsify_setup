@@ -1,3 +1,7 @@
+---
+title: Setup
+---
+
 # Getting Started
 
 Follow these steps to get set up:

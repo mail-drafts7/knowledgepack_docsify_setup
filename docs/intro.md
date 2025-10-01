@@ -1,3 +1,7 @@
+---
+title: Introduction
+---
+
 # Introduction
 
 This project helps you manage all your information in a single place.  

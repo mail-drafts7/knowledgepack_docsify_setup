@@ -20,7 +20,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title", name: "title", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "navigation"
     label: "Site Navigation"

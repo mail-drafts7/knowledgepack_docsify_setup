@@ -1,3 +1,7 @@
+---
+title: FAQ
+---
+
 # FAQ
 
 **Q: Who can edit the documentation?**  
