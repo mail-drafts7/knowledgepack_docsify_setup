@@ -22,3 +22,11 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "navigation"
+    label: "Site Navigation"
+    files:
+      - name: "sidebar"
+        label: "Sidebar Navigation"
+        file: "docs/_sidebar.md"
+        fields:
+          - { label: "Navigation Menu", name: "body", widget: "markdown", hint: "Edit the navigation menu. Use format: - [Page Name](filename.md)" }
