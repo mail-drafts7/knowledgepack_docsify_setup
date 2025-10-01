@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: https://github.com/mail-drafts7/knowledgepack_docsify_setup # Replace with your GitHub repo
+  branch: main                       # Branch to save changes
+
+media_folder: "docs/assets"           # Where uploaded media files go
+public_folder: "/assets"
+
+media_library:
+  name: uploadcare
+  config:
+    publicKey: demopublickey
+
+local_backend: false
+
+collections:
+  - name: "docs"
+    label: "Documentation"
+    folder: "docs"                    # Folder where Markdown files are stored
+    create: true                     # Allows creating new files
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
