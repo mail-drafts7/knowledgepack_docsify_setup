@@ -2,3 +2,4 @@
 - [Intro](/intro.md)
 - [Setup](/setup.md)
 - [FAQ](/faq.md)
+- [test-cms-admin](/test-from-cms-admin.md)
