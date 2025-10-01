@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: https://github.com/mail-drafts7/knowledgepack_docsify_setup # Replace with your GitHub repo
+  name: git-gateway
   branch: main                       # Branch to save changes
 
 media_folder: "docs/assets"           # Where uploaded media files go
