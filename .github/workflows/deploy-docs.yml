@@ -31,11 +31,11 @@ jobs:
         
       - name: Build site structure
         run: |
-          mkdir -p _site
-          # Copy main Docsify application
+          mkdir -p _site/docs
+          # Copy main Docsify application to root
           cp index.html _site/
-          # Copy documentation files
-          cp -r docs _site/
+          # Copy documentation files to docs subdirectory to match basePath
+          cp -r docs/* _site/docs/
           # Copy CMS admin interface
           cp -r admin _site/
           
