@@ -1,0 +1,84 @@
+# Backend configuration for GitHub only
+backend:
+  name: github
+  repo: mail-drafts7/knowledgepack_docsify_setup
+  branch: main
+  api_root: https://api.github.com
+  site_domain: localhost:3000
+
+# Site configuration
+site_name: "Knowledge Pack CMS"
+app_name: "Knowledge Pack CMS"
+
+# Editorial workflow for PR-based publishing
+publish_mode: editorial_workflow
+
+# Media files stored in GitHub repo
+media_folder: "docs/assets"
+public_folder: "/assets"
+
+# Local development support (disabled for production)
+local_backend: false
+
+# Editorial workflow settings
+show_preview_links: true
+
+# Site URLs - GitHub Pages hosting
+site_url: https://mail-drafts7.github.io/knowledgepack_docsify_setup
+display_url: https://mail-drafts7.github.io/knowledgepack_docsify_setup
+
+# Editor configuration
+editor:
+  preview: true
+
+search: true
+
+# Collection definitions
+collections:
+  - name: "docs"
+    label: "📚 Documentation"
+    folder: "docs"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    preview_path: "/{{slug}}"
+    fields:
+      - { 
+          label: "Title", 
+          name: "title", 
+          widget: "string", 
+          required: false
+        }
+      - { 
+          label: "Description", 
+          name: "description", 
+          widget: "string", 
+          required: false
+        }
+      - { 
+          label: "Content", 
+          name: "body", 
+          widget: "markdown"
+        }
+        
+  - name: "navigation"
+    label: "🧭 Site Navigation"
+    files:
+      - name: "sidebar"
+        label: "Sidebar Navigation"
+        file: "docs/_sidebar.md"
+        fields:
+          - { 
+              label: "Navigation Menu", 
+              name: "body", 
+              widget: "markdown"
+            }
+            
+  - name: "config"
+    label: "⚙️ Site Configuration"
+    files:
+      - name: "main-readme"
+        label: "Main Documentation Page"
+        file: "docs/README.md"
+        fields:
+          - { label: "Content", name: "body", widget: "markdown" }
