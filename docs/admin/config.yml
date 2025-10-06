@@ -2,7 +2,7 @@
 backend:
   name: github
   repo: mail-drafts7/knowledgepack_docsify_setup  # Your GitHub repository
-  branch: develop                                  # Target branch (using develop)
+  branch: main                                      # Target branch
   auth_endpoint: api/auth                          # Custom auth endpoint (optional)
 
 # Enable editorial workflow for content review
