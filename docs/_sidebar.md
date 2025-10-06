@@ -1,5 +1,4 @@
 * [Home](/)
-* [Introduction](/intro.md)
 * [Features](/features.md)
-* [Setup Guide](/setup.md)
-* [FAQ](/faq.md)
+* [Getting Started](/getting-started.md)
+* [Setup](/setup.md)

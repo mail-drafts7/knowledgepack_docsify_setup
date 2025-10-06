@@ -17,8 +17,8 @@ publish_mode: editorial_workflow
 media_folder: "docs/assets"
 public_folder: "/assets"
 
-# Local development support (disabled for production)
-local_backend: false
+# Local development support (enabled for local development)
+local_backend: true
 
 # Editorial workflow settings
 show_preview_links: true

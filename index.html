@@ -15,17 +15,42 @@
       name: 'Knowledge Pack',
       repo: 'https://github.com/mail-drafts7/knowledgepack_docsify_setup',
       loadSidebar: true,   // Enable loading _sidebar.md for navigation
+      auto2top: true,      // Auto scroll to top on page change
       basePath: 'docs/',   // Base path where your markdown files are located
       plugins: [
         function(hook, vm) {
+          // Auto-generate navigation from files
+          hook.mounted(function () {
+            generateAutoNavigation();
+          });
+          
           hook.beforeEach(function (html) {
             var editHtml = '[:memo: Edit Document](https://github.com/mail-drafts7/knowledgepack_docsify_setup/blob/main/docs/' + vm.route.file + ')\n'
-            var adminHtml = '[:gear: CMS Admin](https://mail-drafts7.github.io/knowledgepack_docsify_setup/admin/ ":ignore")\n'
+            // Use local admin URL for development, GitHub Pages URL for production
+            var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            var adminUrl = isLocal ? window.location.origin + '/admin/' : 'https://mail-drafts7.github.io/knowledgepack_docsify_setup/admin/'
+            var adminHtml = '[:gear: Configure Admin](' + adminUrl + ' ":ignore")\n'
             return adminHtml + editHtml + html
           })
         }
       ]
     };
+
+    // Auto-generate navigation from available files
+    function generateAutoNavigation() {
+      fetch('/docs/_sidebar.md')
+        .then(response => response.text())
+        .then(sidebarContent => {
+          // Parse existing sidebar to maintain custom structure
+          updateNavigationIfNeeded();
+        })
+        .catch(err => console.log('Using default navigation'));
+    }
+    
+    function updateNavigationIfNeeded() {
+      // This function can be extended to sync navigation with actual files
+      // For now, it maintains the existing structure
+    }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>

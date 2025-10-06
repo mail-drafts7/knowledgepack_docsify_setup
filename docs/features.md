@@ -1,47 +1,32 @@
 ---
-title: Features
+title: "Features"
+description: "Key features and capabilities of our documentation system"
 ---
 
-# Platform Features
+# Features
 
-## Core Capabilities
+Our documentation system includes these key features:
 
-### 📝 Content Creation
-- **Markdown Editor** - Simple, distraction-free writing
-- **Live Preview** - See changes in real-time
-- **Rich Formatting** - Headers, lists, links, images, code blocks
+## 📝 Easy Content Creation
+- Write in simple Markdown format
+- Real-time preview of your changes
+- Visual editor available in admin panel
 
-### 🌐 Web Interface
-- **Responsive Design** - Works on desktop, tablet, and mobile
-- **Fast Loading** - Optimized for speed
-- **Search Functionality** - Find content instantly
-- **Clean Navigation** - Sidebar menu for easy browsing
+## 🔍 Search Functionality
+- Quick search across all documentation
+- Find information instantly
+- Organized navigation structure
 
-### 👥 Collaboration
-- **Multiple Authors** - Team members can contribute
-- **Version History** - See all changes over time
-- **Review Process** - Editorial workflow for content approval
-- **GitHub Integration** - Leverages Git for version control
+## 🚀 Live Publishing
+- Changes appear immediately
+- No complex deployment process
+- Version control with Git
 
-### 🚀 Deployment
-- **Auto-Publishing** - Changes go live automatically
-- **GitHub Pages** - Free, reliable hosting
-- **Custom Domain** - Use your own URL (optional)
-- **SSL Security** - HTTPS by default
+## 📱 Mobile Friendly
+- Responsive design works on all devices
+- Access documentation anywhere
+- Clean, professional appearance
 
-## Technical Benefits
+---
 
-- **No Database** - Files stored in Git repository
-- **Backup Included** - Git history serves as backup
-- **Developer Friendly** - Easy to customize and extend
-- **Open Source** - Built on proven open-source tools
-
-## Use Cases
-
-Perfect for creating:
-- API Documentation
-- User Manuals
-- Company Wikis
-- Process Documentation
-- Knowledge Bases
-- Training Materials
+Ready to get started? Check out our [Setup Guide](setup.md)!

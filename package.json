@@ -4,10 +4,12 @@
   "description": "Knowledge Pack with Docsify and Decap CMS integration",
   "main": "index.js",
   "scripts": {
-    "start": "docsify serve docs",
+    "start": "npm run generate-nav && concurrently --kill-others --prefix-colors \"blue,green,yellow\" \"npx decap-server\" \"node watch-navigation.js\" \"docsify serve docs\"",
     "cms-proxy": "npx decap-server",
     "dev": "npm run cms-proxy",
-    "build": "mkdir -p dist && cp -r docs/* dist/ && cp -r admin dist/",
+    "watch-nav": "node watch-navigation.js",
+    "generate-nav": "node generate-navigation.js",
+    "build": "npm run generate-nav && mkdir -p dist && cp -r docs/* dist/ && cp -r admin dist/",
     "preview": "npm run build && npx http-server dist -p 8080"
   },
   "dependencies": {
@@ -15,6 +17,7 @@
     "docsify-cli": "^4.4.2"
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "http-server": "^14.1.1"
   },
   "repository": {

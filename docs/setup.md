@@ -1,63 +1,53 @@
 ---
-title: Setup Guide
+title: "Setup Guide"
+description: "Step-by-step instructions to get your documentation site running"
 ---
 
-# Quick Setup Guide
+# Setup Guide
 
-## For Demo Purposes
+Get your documentation site up and running in just a few steps!
 
-This system is already set up and running! Here's how to use it:
+## Prerequisites
+- Node.js (version 16 or higher)
+- Basic knowledge of Markdown (optional)
 
-### 🌐 View Documentation
-- **Current Page**: You're viewing the live documentation
-- **Navigation**: Use the sidebar to browse different sections
-- **Search**: Type in the search box to find content
+## Quick Setup
 
-### ⚙️ Edit Content (Demo)
-1. Open the [Admin Panel](http://localhost:3000/admin/) in a new tab
-2. Click "Login with GitHub" (for demo, authentication is required)
-3. Create or edit documentation pages
-4. Changes publish automatically
-
-## For Your Organization
-
-### Step 1: Get the Code
+### Step 1: Install Dependencies
 ```bash
-git clone https://github.com/your-org/knowledge-base
-cd knowledge-base
 npm install
 ```
 
-### Step 2: Start Development
+### Step 2: Start Development Server
 ```bash
 npm start
-# Opens at http://localhost:3000
 ```
 
-### Step 3: Customize Content
-- Edit files in the `docs/` folder
-- Update navigation in `docs/_sidebar.md`
-- Add your organization's branding
+Your site will be available at `http://localhost:3000`
 
-### Step 4: Deploy to Production
-- Push changes to GitHub
-- Enable GitHub Pages in repository settings  
-- Your site goes live at `https://your-org.github.io/knowledge-base`
+### Step 3: Start CMS Proxy (Optional)
+For content editing through the admin interface:
+```bash
+npm run cms-proxy
+```
 
-## Configuration Options
+## File Structure
+```
+docs/
+├── README.md          # Homepage content
+├── features.md        # Feature descriptions
+├── setup.md          # This setup guide
+├── getting-started.md # Quick start guide
+└── _sidebar.md       # Navigation menu
+```
 
-### Basic Settings
-- **Site Name**: Edit `index.html`
-- **Navigation**: Update `docs/_sidebar.md`
-- **Homepage**: Modify `docs/README.md`
+## Adding Content
+1. Create new `.md` files in the `docs/` folder
+2. Write content using Markdown syntax
+3. Navigation updates automatically
 
-### Advanced Features
-- **Custom Domain**: Configure in GitHub Pages settings
-- **Team Access**: Manage in GitHub repository settings
-- **Themes**: Customize CSS in `index.html`
+That's it! You're ready to start documenting.
 
-## Need Help?
+---
 
-- Check the [FAQ](faq.md) for common questions
-- Review [Features](features.md) for capabilities
-- Contact your system administrator
+Need help? Check out [Getting Started](getting-started.md) for more details.

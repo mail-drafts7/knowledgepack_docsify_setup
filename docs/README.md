@@ -1,38 +1,35 @@
-# Knowledge Management System
+---
+title: "Welcome to Knowledge Pack"
+description: "A simple, clean documentation system built with Docsify and Decap CMS"
+---
 
-A modern documentation platform for teams and organizations.
+# Welcome to Knowledge Pack
 
-## What is this?
+A simple, clean documentation system built with Docsify and Decap CMS.
 
-This is a **Knowledge Management System** that helps you:
-- Create and organize documentation
-- Share knowledge across your team  
-- Keep information up-to-date
-- Access docs from anywhere
+## What's This Demo?
 
-## Key Features
+This is a **simple documentation demo** that shows how easy it is to:
+- ✏️ Create content in Markdown
+- 📱 Browse on any device
+- 🔍 Search through documentation
+- ⚡ Publish changes instantly
 
-✅ **Easy to Use** - Write in simple Markdown  
-✅ **Web-Based** - Access from any browser  
-✅ **Collaborative** - Multiple editors can contribute  
-✅ **Version Control** - Track all changes with Git  
-✅ **Free Hosting** - Runs on GitHub Pages  
+## Quick Tour
 
-## Quick Demo
+Use the sidebar to explore:
+- **[Features](features.md)** - See what this system can do
+- **[Getting Started](getting-started.md)** - Learn how to use it
+- **[Setup Guide](setup.md)** - Technical setup instructions
+- **[About](about.md)** - Learn more about the platform
 
-1. **Browse Documentation** - Navigate using the sidebar
-2. **Search Content** - Use the search box to find information  
-3. **Edit Content** - Use the [Admin Panel](http://localhost:3000/admin/) to make changes
-4. **Publish Changes** - Updates go live automatically
+## Demo Highlights
 
-## Perfect For
-
-- 📚 **Documentation Teams**
-- 🏢 **Corporate Knowledge Bases**  
-- 🎓 **Educational Resources**
-- 📋 **Project Wikis**
-- 💼 **Process Documentation**
+🚀 **Live in 30 seconds** - Just run `npm start`  
+📝 **Write in Markdown** - Simple, familiar syntax  
+🎨 **Clean Design** - Professional appearance  
+⚡ **Instant Updates** - Changes appear immediately  
 
 ---
 
-**Ready to explore?** Check out the [Features](features.md) or jump to [Setup Guide](setup.md)
+**Start exploring!** → Click any link in the sidebar to begin your tour.
