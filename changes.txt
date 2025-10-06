@@ -1,0 +1,31 @@
+## What YOU CAN customize in Netlify CMS:
+    1. Basic Styling:
+        - Custom CSS to change colors, fonts, layout
+        - Logo/branding changes
+        - Some UI element positioning
+
+    2. Configuration Options:
+        - Field types and layouts
+        - Collection structures
+        - Workflow settings
+        - Media library options
+
+    3. Custom Widgets:
+        - Create custom input widgets
+        - Add custom preview templates
+        - Custom editor components
+
+## What you CANNOT customize in Netlify CMS:
+    1. Core UI Structure:
+        - Cannot completely redesign the interface
+        - Cannot change the basic layout/navigation
+        - Cannot add major new features like bulk operations
+
+    2. Performance Issues:__
+        - Cannot fix inherent speed/loading issues
+        - Cannot optimize the underlying architecture
+
+    3. Advanced Features:__
+        - Cannot add complex user management
+        - Cannot add custom workflows beyond what's built-in
+        - Cannot integrate with other systems easily

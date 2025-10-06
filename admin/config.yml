@@ -1,6 +1,9 @@
 backend:
   name: git-gateway
-  branch: main                       # Branch to save changes
+  branch: main                       # Main branch
+  
+# Enable editorial workflow for content review
+publish_mode: editorial_workflow
 
 media_folder: "docs/assets"           # Where uploaded media files go
 public_folder: "/assets"
@@ -10,7 +13,16 @@ media_library:
   config:
     publicKey: demopublickey
 
-local_backend: false
+# Enable local development support
+local_backend: true
+
+# Site configuration
+site_url: https://your-site.netlify.app
+display_url: https://your-site.netlify.app
+
+# Editor configuration
+editor:
+  preview: true
 
 collections:
   - name: "docs"

@@ -1,0 +1,136 @@
+name: Content Review Workflow
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['docs/**', 'admin/**']
+  push:
+    branches: [main]
+    paths: ['docs/**', 'admin/**']
+
+jobs:
+  content-validation:
+    runs-on: ubuntu-latest
+    name: Validate Content Changes
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Validate Markdown files
+      run: |
+        # Check for broken markdown syntax
+        for file in $(find docs -name "*.md" -type f); do
+          echo "Validating $file..."
+          # Basic markdown validation - check for unclosed code blocks
+          if grep -q '```' "$file"; then
+            if [ $(($(grep -c '```' "$file") % 2)) -ne 0 ]; then
+              echo "ERROR: Unclosed code block in $file"
+              exit 1
+            fi
+          fi
+        done
+        echo "All markdown files validated successfully!"
+    
+    - name: Check for merge conflicts
+      run: |
+        if grep -r "<<<<<<< HEAD\|======= \|>>>>>>> " docs/ || true; then
+          echo "ERROR: Merge conflict markers found in docs/"
+          exit 1
+        fi
+        echo "No merge conflicts detected"
+    
+    - name: Validate sidebar navigation
+      run: |
+        if [ -f "docs/_sidebar.md" ]; then
+          echo "Validating sidebar navigation..."
+          # Check if sidebar references exist
+          while IFS= read -r line; do
+            if [[ $line =~ \[.*\]\((.*\.md)\) ]]; then
+              file="${BASH_REMATCH[1]}"
+              if [ ! -f "docs/$file" ] && [ ! -f "docs/${file#*/}" ]; then
+                echo "WARNING: Referenced file $file in sidebar may not exist"
+              fi
+            fi
+          done < docs/_sidebar.md
+          echo "Sidebar validation completed"
+        fi
+
+  deploy-preview:
+    runs-on: ubuntu-latest
+    name: Deploy Preview
+    needs: content-validation
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build site
+      run: |
+        echo "Building preview site..."
+        # Create a simple build process
+        mkdir -p dist
+        cp -r docs/* dist/
+        cp index.html dist/
+        cp -r admin dist/
+        
+    - name: Comment PR with preview info
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `## 📖 Content Preview Ready!
+            
+            Your content changes have been validated and are ready for review.
+            
+            ### Changes Summary:
+            - Modified files: ${context.payload.pull_request.changed_files} file(s)
+            - Additions: +${context.payload.pull_request.additions}
+            - Deletions: -${context.payload.pull_request.deletions}
+            
+            ### Review Checklist:
+            - [ ] Content accuracy verified
+            - [ ] Grammar and spelling checked
+            - [ ] Links work correctly
+            - [ ] Images display properly
+            - [ ] Navigation updated if needed
+            
+            Once approved, this PR will be automatically merged and deployed to the live site.`
+          })
+
+  auto-merge:
+    runs-on: ubuntu-latest
+    name: Auto-merge approved content
+    needs: [content-validation, deploy-preview]
+    if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'auto-merge-approved')
+    
+    steps:
+    - name: Auto-merge PR
+      uses: pascalgn/merge-action@v0.15.6
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        merge_method: squash
