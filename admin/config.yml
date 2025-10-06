@@ -3,6 +3,8 @@ backend:
   name: github
   repo: mail-drafts7/knowledgepack_docsify_setup
   branch: main
+  auth_type: implicit
+  app_id: Ov23likmP4pynmmXoskn
 
 # Site configuration
 site_name: "Knowledge Pack CMS"
