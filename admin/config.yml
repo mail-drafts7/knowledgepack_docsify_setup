@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: mail-drafts7/knowledgepack_docsify_setup  # Your GitHub repo
   branch: main                       # Main branch
   
 # Enable editorial workflow for content review
@@ -16,9 +17,9 @@ media_library:
 # Enable local development support
 local_backend: true
 
-# Site configuration
-site_url: https://your-site.netlify.app
-display_url: https://your-site.netlify.app
+# Site configuration - GitHub Pages URL
+site_url: https://mail-drafts7.github.io/knowledgepack_docsify_setup
+display_url: https://mail-drafts7.github.io/knowledgepack_docsify_setup
 
 # Editor configuration
 editor:
