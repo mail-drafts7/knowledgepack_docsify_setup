@@ -3,8 +3,6 @@ backend:
   name: github
   repo: mail-drafts7/knowledgepack_docsify_setup
   branch: main
-  api_root: https://api.github.com
-  site_domain: mail-drafts7.github.io
 
 # Site configuration
 site_name: "Knowledge Pack CMS"
