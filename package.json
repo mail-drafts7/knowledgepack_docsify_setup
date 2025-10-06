@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "decap-server": "^3.0.0",
-    "docsify-cli": "^4.4.4"
+    "docsify-cli": "^4.4.2"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
@@ -21,7 +21,12 @@
     "type": "git",
     "url": "https://github.com/mail-drafts7/knowledgepack_docsify_setup.git"
   },
-  "keywords": ["docsify", "decap-cms", "documentation", "knowledge-management"],
+  "keywords": [
+    "docsify",
+    "decap-cms",
+    "documentation",
+    "knowledge-management"
+  ],
   "author": "Your Name",
   "license": "MIT"
 }

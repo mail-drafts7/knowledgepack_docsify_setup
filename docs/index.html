@@ -16,10 +16,13 @@
       name: 'Knowledge Pack',
       repo: 'https://github.com/mail-drafts7/knowledgepack_docsify_setup',
       loadSidebar: true,
+      loadSidebar: '_sidebar.md',
+      hideSidebar: false,
       auto2top: true,
       maxLevel: 4,
       subMaxLevel: 2,
       search: 'auto',
+      autoHeader: false,
       copyCode: {
         buttonText : 'Copy to clipboard',
         errorText  : 'Error',
@@ -40,7 +43,7 @@
               url = 'https://github.com/mail-drafts7/knowledgepack_docsify_setup/blob/main/docs/' + vm.route.file
             }
             var editHtml = '[:memo: Edit Document](' + url + ')\n'
-            var adminHtml = '[:gear: CMS Admin](/admin/)\n'
+            var adminHtml = '[:gear: CMS Admin](http://localhost:3000/admin/ ":ignore")\n'
             return adminHtml + editHtml + html
           })
         }

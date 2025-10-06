@@ -1,6 +1,5 @@
+* [Home](/)
+* [Introduction](/intro.md)
 * [Features](/features.md)
-* [Intro](/intro.md)
-* [Setup](/setup.md)
+* [Setup Guide](/setup.md)
 * [FAQ](/faq.md)
-* [test-cms-admin](/test-from-cms-admin.md)
-* [T](/test-from-cms-admin.md)est file

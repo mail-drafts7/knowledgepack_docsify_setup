@@ -132,12 +132,12 @@ npm start
    - Go to GitHub Settings → Developer settings → OAuth Apps
    - New OAuth App with these settings:
      - App name: `Knowledge Pack CMS`
-     - Homepage URL: `https://your-netlify-site.netlify.app`
-     - Authorization callback: `https://api.netlify.com/auth/done`
+     - Homepage URL: `https://mail-drafts7.github.io/knowledgepack_docsify_setup`
+     - Authorization callback: `https://api.github.com/auth/done`
 
-2. Configure in Netlify:
-   - Add GitHub OAuth credentials in Netlify Identity settings
-   - Enable Git Gateway
+2. Configure GitHub Authentication:
+   - Use GitHub OAuth App credentials in your hosting environment
+   - Enable repository access for the CMS
 
 ### Local Development:
 - Uses proxy server authentication
@@ -149,7 +149,7 @@ npm start
 | Service | URL | Purpose |
 |---------|-----|---------|
 | **Documentation** | `https://mail-drafts7.github.io/knowledgepack_docsify_setup` | Public documentation site |
-| **CMS Admin** | `https://your-site.netlify.app/admin/` | Content management dashboard |
+| **CMS Admin** | `https://mail-drafts7.github.io/knowledgepack_docsify_setup/admin/` | Content management dashboard |
 | **GitHub Repository** | `https://github.com/mail-drafts7/knowledgepack_docsify_setup` | Source code and content |
 | **Local Development** | `http://localhost:3000` | Local documentation |
 | **Local CMS** | `http://localhost:3000/admin/` | Local CMS interface |
@@ -175,14 +175,14 @@ npm start
 ### Common Issues:
 
 1. **CMS not loading:**
-   - Check if Netlify Identity is enabled
    - Verify GitHub OAuth configuration
    - Check browser console for errors
+   - Ensure DecapCMS can access your repository
 
 2. **Authentication failed:**
    - Verify OAuth app callback URLs
    - Check GitHub repository permissions
-   - Ensure Git Gateway is enabled
+   - Ensure proper GitHub authentication setup
 
 3. **Local development issues:**
    - Ensure proxy server is running (`npm run dev`)
@@ -192,14 +192,13 @@ npm start
 4. **Deployment failures:**
    - Check GitHub Actions logs
    - Verify package.json build scripts
-   - Check Netlify build logs
+   - Check GitHub Pages deployment status
 
 ## 📊 Cost Analysis (All Free!)
 
 | Service | Cost | Limits |
 |---------|------|--------|
 | **GitHub Pages** | Free | Public repos, 1GB storage, 100GB bandwidth/month |
-| **Netlify** | Free | 300 build minutes/month, 100GB bandwidth |
 | **GitHub Actions** | Free | 2000 minutes/month for public repos |
 | **Domain** | Optional | Can use free subdomains |
 
@@ -209,7 +208,7 @@ npm start
 
 1. Complete the deployment following this guide
 2. Test the complete workflow
-3. Invite team members to Netlify Identity
+3. Invite team members to collaborate on GitHub
 4. Set up branch protection rules (optional)
 5. Configure custom domain (optional)
 6. Add team workflow documentation
@@ -218,5 +217,4 @@ npm start
 
 - [Decap CMS Documentation](https://decapcms.org/docs/)
 - [GitHub Pages Documentation](https://docs.github.com/pages)
-- [Netlify Documentation](https://docs.netlify.com/)
 - [Docsify Documentation](https://docsify.js.org/)
