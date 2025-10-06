@@ -31,13 +31,15 @@ jobs:
         
       - name: Build site structure
         run: |
-          mkdir -p _site/docs
+          mkdir -p _site
           # Copy main Docsify application to root
           cp index.html _site/
-          # Copy documentation files to docs subdirectory to match basePath
-          cp -r docs/* _site/docs/
+          # Copy documentation files directly to match local structure
+          cp -r docs _site/
           # Copy CMS admin interface
           cp -r admin _site/
+          # Create 404.html for GitHub Pages SPA routing
+          cp index.html _site/404.html
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
