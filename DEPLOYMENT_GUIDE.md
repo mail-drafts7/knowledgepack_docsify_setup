@@ -1,21 +1,22 @@
-# 🚀 Complete Deployment & Workflow Guide
+# 🚀 Complete Deployment & Workflow Guide (Credit-Free!)
 
 ## Overview
-This guide covers the complete setup for deploying your Knowledge Pack with Decap CMS using free hosting services and GitHub workflow integration.
+This guide covers deploying your Knowledge Pack with Decap CMS using **GitHub Pages exclusively** - completely free with no credit limits or billing surprises.
 
-## 🏗️ Architecture Overview
+## 🏗️ Simple Architecture (No Credit Issues!)
 
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   GitHub Repo   │    │  GitHub Pages   │    │    Netlify      │
-│    (develop)    │───▶│ (Documentation) │    │  (CMS Admin)    │
-│                 │    │                 │    │                 │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         │                       ▼                       ▼
-         │              https://your-site.           https://cms-
-         │              github.io/repo               admin.netlify.app
-         │
+┌─────────────────┐    
+│   GitHub Repo   │    
+│    (develop)    │───▶┌─────────────────────────────────┐
+│                 │    │        GitHub Pages             │
+└─────────────────┘    │  (Documentation + CMS Admin)   │
+         │              │                                 │
+         │              └─────────────────────────────────┘
+         │                              │
+         │                              ▼
+         │              https://mail-drafts7.github.io/
+         │              knowledgepack_docsify_setup
          ▼
   ┌─────────────────┐
   │ Editorial Flow  │
@@ -23,59 +24,54 @@ This guide covers the complete setup for deploying your Knowledge Pack with Deca
   └─────────────────┘
 ```
 
-## 📋 Step-by-Step Deployment
+**Single URL for everything:**
+- **Documentation**: `https://mail-drafts7.github.io/knowledgepack_docsify_setup`
+- **CMS Dashboard**: `https://mail-drafts7.github.io/knowledgepack_docsify_setup/admin/`
 
-### Step 1: GitHub Pages Setup (Documentation Site)
+## 📋 Step-by-Step Deployment (GitHub Pages Only!)
 
-1. **Enable GitHub Pages:**
-   - Go to your repository: `https://github.com/mail-drafts7/knowledgepack_docsify_setup`
-   - Navigate to Settings → Pages
-   - Source: Deploy from a branch → `develop` branch
-   - Folder: `/ (root)`
-   - Save the settings
+### Step 1: Enable GitHub Pages
 
-2. **The GitHub Action will automatically:**
-   - Build your documentation from the `develop` branch
-   - Deploy to GitHub Pages
-   - Your site will be available at: `https://mail-drafts7.github.io/knowledgepack_docsify_setup`
+1. **Go to Repository Settings:**
+   - Navigate to: `https://github.com/mail-drafts7/knowledgepack_docsify_setup`
+   - Click on "Settings" tab
+   - Scroll down to "Pages" section
 
-### Step 2: Netlify Setup (CMS Dashboard)
+2. **Configure Pages:**
+   - **Source**: Deploy from a branch
+   - **Branch**: `develop`
+   - **Folder**: `/ (root)`
+   - Click "Save"
 
-1. **Deploy to Netlify:**
-   - Go to [netlify.com](https://netlify.com) and sign up/login
-   - Click "New site from Git"
-   - Choose GitHub and select your repository
-   - Configure build settings:
-     - Branch to deploy: `develop`
-     - Build command: `npm run build`
-     - Publish directory: `docs`
-   - Deploy site
+3. **Automatic Deployment:**
+   - GitHub Action will trigger automatically
+   - Builds both documentation and CMS admin
+   - Site will be live at: `https://mail-drafts7.github.io/knowledgepack_docsify_setup`
 
-2. **Enable Netlify Identity:**
-   - In Netlify dashboard → Site settings → Identity
-   - Enable Identity service
-   - Set registration to "Invite only" or "Open" based on your needs
-   - Enable Git Gateway in Identity settings
+### Step 2: Access Your Sites
 
-3. **Configure GitHub OAuth:**
-   - In Netlify Identity → Settings → External providers
-   - Enable GitHub provider
-   - Add GitHub OAuth credentials (if you created a GitHub OAuth app)
+**After deployment (usually takes 2-5 minutes):**
 
-### Step 3: Configure Editorial Workflow
+| What | URL | Description |
+|------|-----|-------------|
+| **Documentation Site** | `https://mail-drafts7.github.io/knowledgepack_docsify_setup` | Your main documentation |
+| **CMS Admin Dashboard** | `https://mail-drafts7.github.io/knowledgepack_docsify_setup/admin/` | Content management interface |
 
-The `admin/config.yml` is already configured with:
-- **Editorial workflow enabled** (`publish_mode: editorial_workflow`)
-- **Branch targeting develop** (`branch: develop`)
-- **Local development support** (`local_backend: true`)
+### Step 3: CMS Configuration (Already Done!)
+
+Your `admin/config.yml` is pre-configured with:
+- ✅ **GitHub backend** pointing to your repository
+- ✅ **Editorial workflow** for PR-based content management
+- ✅ **Develop branch** as the target
+- ✅ **Local development** support
 
 ## 🔄 Complete Workflow Process
 
 ### For Content Creators:
 
 1. **Access CMS Dashboard:**
-   - Visit your Netlify site URL + `/admin/`
-   - Login with GitHub credentials
+   - Visit: `https://mail-drafts7.github.io/knowledgepack_docsify_setup/admin/`
+   - Login with GitHub credentials (direct GitHub OAuth)
    - Start creating/editing content
 
 2. **Content Creation Flow:**
@@ -86,21 +82,21 @@ The `admin/config.yml` is already configured with:
 3. **What happens automatically:**
    - Draft changes are saved in CMS
    - Publishing creates a Pull Request to `develop` branch
-   - PR triggers preview deployment
-   - After merge, main site updates
+   - PR triggers GitHub Pages rebuild
+   - After merge, live site updates automatically
 
 ### For Reviewers:
 
 1. **Review Process:**
    - Receive PR notification on GitHub
    - Review changes in GitHub interface
-   - Check preview deployment
+   - Check the changes in the PR diff
    - Approve or request changes
    - Merge to `develop` branch
 
 2. **Merge Conflict Resolution:**
-   - GitHub will show conflicts in PR
-   - Use GitHub web editor or local git to resolve
+   - GitHub will show conflicts in PR interface
+   - Use GitHub web editor or local git to resolve conflicts
    - CMS will show conflict status
    - Re-submit after resolution
 
