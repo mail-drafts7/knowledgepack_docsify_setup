@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Knowledge Pack Documentation</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Knowledge Pack - Documentation and CMS Integration">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'Knowledge Pack',
+      repo: 'https://github.com/mail-drafts7/knowledgepack_docsify_setup',
+      loadSidebar: true,
+      auto2top: true,
+      maxLevel: 4,
+      subMaxLevel: 2,
+      search: 'auto',
+      copyCode: {
+        buttonText : 'Copy to clipboard',
+        errorText  : 'Error',
+        successText: 'Copied'
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function (html) {
+            if (/githubusercontent\.com/.test(vm.route.file)) {
+              url = vm.route.file
+                .replace('https://raw.githubusercontent.com', 'https://github.com')
+                .replace(/\/master/, '/blob/master')
+            } else if (/jsdelivr\.net/.test(vm.route.file)) {
+              url = vm.route.file
+                .replace('https://cdn.jsdelivr.net/gh', 'https://github.com')
+                .replace(/@[^/]+/, '/blob/master')
+            } else {
+              url = 'https://github.com/mail-drafts7/knowledgepack_docsify_setup/blob/main/docs/' + vm.route.file
+            }
+            var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            var adminHtml = '[:gear: CMS Admin](/admin/)\n'
+            return adminHtml + editHtml + html
+          })
+        }
+      ]
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Search plugin -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- Copy code plugin -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- Zoom image plugin -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+</body>
+</html>

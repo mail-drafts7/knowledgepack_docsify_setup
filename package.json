@@ -1,5 +1,27 @@
 {
+  "name": "knowledgepack-docsify-setup",
+  "version": "1.0.0",
+  "description": "Knowledge Pack with Docsify and Decap CMS integration",
+  "main": "index.js",
+  "scripts": {
+    "start": "docsify serve docs",
+    "cms-proxy": "npx decap-server",
+    "dev": "npm run cms-proxy",
+    "build": "mkdir -p dist && cp -r docs/* dist/ && cp -r admin dist/",
+    "preview": "npm run build && npx http-server dist -p 8080"
+  },
   "dependencies": {
-    "netlify-cms-proxy-server": "^1.3.24"
-  }
+    "decap-server": "^3.0.0",
+    "docsify-cli": "^4.4.4"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mail-drafts7/knowledgepack_docsify_setup.git"
+  },
+  "keywords": ["docsify", "decap-cms", "documentation", "knowledge-management"],
+  "author": "Your Name",
+  "license": "MIT"
 }
