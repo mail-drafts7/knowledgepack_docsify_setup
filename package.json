@@ -6,7 +6,9 @@
   "scripts": {
     "start": "docsify serve docs",
     "cms-proxy": "npx decap-server",
-    "dev": "npm run cms-proxy"
+    "dev": "npm run cms-proxy",
+    "build": "mkdir -p dist && cp -r docs/* dist/ && cp -r admin dist/",
+    "preview": "npm run build && npx http-server dist -p 8080"
   },
   "dependencies": {
     "decap-server": "^3.0.0",
