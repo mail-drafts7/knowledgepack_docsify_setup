@@ -3,21 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <title>Knowledge Pack - Content Manager</title>
+  <meta name="description" content="DecapCMS admin interface for knowledge management" />
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <!-- DecapCMS - Free, open-source content management -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
+    // Initialize DecapCMS
+    console.log('DecapCMS loaded successfully');
+    
+    // Optional: Custom configuration can be added here
+    if (window.CMS) {
+      console.log('DecapCMS initialized and ready');
     }
   </script>
 </body>
