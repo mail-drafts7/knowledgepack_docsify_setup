@@ -4,7 +4,7 @@ backend:
   repo: mail-drafts7/knowledgepack_docsify_setup
   branch: main
   api_root: https://api.github.com
-  site_domain: localhost:3000
+  site_domain: mail-drafts7.github.io
 
 # Site configuration
 site_name: "Knowledge Pack CMS"
@@ -17,8 +17,8 @@ publish_mode: editorial_workflow
 media_folder: "docs/assets"
 public_folder: "/assets"
 
-# Local development support (enabled for local development)
-local_backend: true
+# Local development support (disabled for GitHub Pages)
+local_backend: false
 
 # Editorial workflow settings
 show_preview_links: true
