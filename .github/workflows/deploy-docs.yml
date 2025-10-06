@@ -25,27 +25,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
-      - name: Build site structure
-        run: |
-          mkdir -p _site
-          # Copy main Docsify application to root
-          cp index.html _site/
-          # Copy documentation files directly to match local structure
-          cp -r docs _site/
-          # Copy CMS admin interface
-          cp -r admin _site/
-          # Create 404.html for GitHub Pages SPA routing
-          cp index.html _site/404.html
-          
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '_site'
-          
+          path: 'dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

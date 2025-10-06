@@ -194,6 +194,12 @@ npm start
    - Verify package.json build scripts
    - Check GitHub Pages deployment status
 
+### Notes about the GitHub Actions workflow
+
+- The repository now uses a GitHub Actions workflow (`.github/workflows/deploy-docs.yml`) that installs Node.js, runs `npm ci` and `npm run build`, and then deploys the `dist/` folder to GitHub Pages.
+- Ensure the `main` branch is configured to serve Pages from the repository root (Settings → Pages → branch: `main`, folder: `/`).
+- No repository secrets are required for public repos when using the `actions/deploy-pages` flow, but ensure the workflow has `pages: write` and `id-token: write` permissions (already configured in the workflow).
+
 ## 📊 Cost Analysis (All Free!)
 
 | Service | Cost | Limits |

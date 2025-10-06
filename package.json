@@ -9,8 +9,8 @@
     "dev": "npm run cms-proxy",
     "watch-nav": "node watch-navigation.js",
     "generate-nav": "node generate-navigation.js",
-    "build": "npm run generate-nav && mkdir -p dist && cp -r docs/* dist/ && cp -r admin dist/",
-    "preview": "npm run build && npx http-server dist -p 8080"
+  "build": "npm run generate-nav && rm -rf dist && mkdir -p dist && cp index.html dist/ && cp -r docs dist/docs && cp -r admin dist/admin && cp index.html dist/404.html && cp docs/_sidebar.md dist/docs/_sidebar.md || true",
+  "preview": "npm run build && npx http-server dist -p 8080"
   },
   "dependencies": {
     "decap-server": "^3.0.0",
